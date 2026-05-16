@@ -27,7 +27,7 @@ export default function Contact() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <a href="mailto:isaacejidokun@gmail.com"
-              className="flex items-center gap-2 text-[#B0C0D8] hover:text-[#00D4FF] transition-colors text-base">
+              className="flex items-center gap-2 text-text-secondary hover:text-[#00D4FF] transition-colors text-base">
               <Mail className="w-4 h-4" /> isaacejidokun@gmail.com
             </a>
             <span className="hidden sm:block text-text-secondary">•</span>

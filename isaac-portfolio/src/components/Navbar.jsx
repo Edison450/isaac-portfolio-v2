@@ -14,6 +14,13 @@ export default function Navbar() {
 
   const links = ['Work', 'Services', 'About', 'Contact']
 
+  const handleMobileNavClick = () => {
+    // Close menu after 3 seconds
+    setTimeout(() => {
+      setMenuOpen(false)
+    }, 1000)
+  }
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -55,24 +62,24 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#1A1A2E] border-t border-white/5 overflow-hidden"
+            className="md:hidden bg-[#1A1A2E] border-t border-white/5 overflow-hidden pointer-events-auto"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {links.map(link => (
                 <a key={link} href={`#${link.toLowerCase()}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-white/70 hover:text-white text-sm transition-colors">
+                  onClick={handleMobileNavClick}
+                  className="text-white/70 hover:text-white text-sm transition-colors pointer-events-auto">
                   {link}
                 </a>
               ))}
-              <a href="#contact" onClick={() => setMenuOpen(false)}
-                className="bg-[#E91E8C] text-white text-sm font-medium px-5 py-2.5 rounded-full text-center">
+              <a href="#contact" onClick={handleMobileNavClick}
+                className="bg-[#E91E8C] text-white text-sm font-medium px-5 py-2.5 rounded-full text-center pointer-events-auto">
                 Hire Me
               </a>
             </div>
